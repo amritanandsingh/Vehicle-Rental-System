@@ -1,0 +1,48 @@
+#ifndef AUTHENTICATION_HPP
+#define AUTHENTICATION_HPP
+#include<iostream>
+#include<list>
+#include<string>
+#include<fstream>
+class authentication{
+    private:
+        class dataLoad{
+            public:
+                std::string userID ,password,type , status;
+                dataLoad(std::string userID,std::string password ,std::string type ,std::string status)
+                {
+                    this->userID = userID;
+                    this->password = password;
+                    this->type = type;
+                    this->status = status;
+                }
+        };
+        std::list<dataLoad> head;
+    public:
+        authentication();
+        void test();
+        //std::string login(std::string userid , std::string password);
+        //std::string logOut(std::string userid);
+        //~authentication();
+}; 
+
+// defing authentication that is construtor and aim is to add loading data into DS from .csv
+authentication::authentication()
+{
+    std::fstream obj;
+    obj.open("../../csv/login.csv",std::ios::in);
+    if(obj.is_open())
+    {
+        std::cout<<"file is opened"<<std::endl;
+    }
+    else{
+        std::cout<<"Error in opeing File"<<std::endl;
+    }
+
+}   
+void authentication::test()
+{
+    std::cout<<"This is Authentication class"<<std::endl;
+}
+
+#endif  
