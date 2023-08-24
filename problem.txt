@@ -1,0 +1,41 @@
+Certainly, here is a concise list of the main features of the Vehicle Rental System project:
+
+1. **Project Setup and User Interface Design:**
+   - Set up C++ development environment.
+   - Design user-friendly menus, forms, and screens.
+
+2. **Data Modeling:**
+   - Design data structures for vehicles, customers, bookings, and staff.
+   - Define classes for Staff, Customer, Vehicle (with derived classes for car, motorcycle, bicycle), and Booking.
+
+3. **Vehicle and Customer Management:**
+   - Add, update, and delete vehicles and customers.
+   - Search and display available vehicles based on criteria.
+   
+4. **Booking and Rental Functionality:**
+   - Enable customers to select vehicles, specify rental dates, and make reservations.
+   - Mark booked vehicles as unavailable during rental period.
+   - Calculate rental charges based on vehicle type and duration.
+   
+5. **Administrative Features:**
+   - Implement staff login system with permissions.
+   - Staff can manage bookings, view customer details, and update vehicle availability.
+   - Generate reports such as daily bookings and revenue summary.
+   
+6. **Vehicle Return and Invoice Generation:**
+   - Allow customers to return rented vehicles.
+   - Calculate final rental charges including additional fees.
+   - Generate detailed invoices for customers.
+   
+7. **Error Handling and Validation:**
+   - Implement input validation for dates, vehicle choices, and other fields.
+   - Handle exceptions and unexpected scenarios gracefully.
+   
+8. **Testing and Debugging:**
+   - Thoroughly test the application with various scenarios.
+   - Debug and resolve any issues identified during testing.
+   
+9. **Finalization and Presentation:**
+   - Polish the user interface for a smooth experience.
+   - Prepare a presentation showcasing features, design, and functionalities.
+

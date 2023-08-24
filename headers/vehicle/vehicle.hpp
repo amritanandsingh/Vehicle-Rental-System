@@ -231,6 +231,11 @@ public:
             
             if(id == ((*ptr)->id) )
             {   
+                if(((*ptr)->status)=="booked")
+                {
+                    std::cout<<"Can't Delete Vehical because it was already Booked by some Customer"<<std::endl;
+                    return ;
+                }
                 flag=1;
                 temp = ptr;
             }
@@ -323,6 +328,8 @@ public:
         }
         return "Not Found";
     }
+
+    
 };
 
 #endif

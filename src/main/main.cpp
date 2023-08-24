@@ -114,6 +114,57 @@ int main()
                                                 bookingOpsObj.listOfBookingOnDay();
                                             }
                                             break;
+                                        case 3:
+                                            {
+                                                int choice;
+                                                do{
+                                                    crudVehicle();
+                                                    std::cin>>choice;
+                                                    switch (choice)
+                                                    { 
+                                                        case 0:
+                                                            std::cout<<"Menu is Exit \n";
+                                                            break;  
+                                                        case 1:
+                                                            {
+                                                                Vehicle_CRUD Vehicle_CRUD_obj;
+                                                                std::cout<<"Enter Vehicle ID for Delete "<<std::endl;
+                                                                string id;
+                                                                std::cin>>id;
+                                                                Vehicle_CRUD_obj.deleteVehicle(id);   
+                                 
+                                                            }
+                                                            break;
+                                                        case 2:
+                                                            {
+                                                                std::string x,a,b,c;
+                                                                updateVehicleMenu();
+                                                                std::cin>>x>>a>>b>>c;
+                                                                Vehicle_CRUD Vehicle_CRUD_obj;
+                                                                Vehicle_CRUD_obj.update(x,a,b,c);
+                                                            }
+                                                            break;
+                                                        case 3:
+                                                            {
+                                                                Vehicle_CRUD Vehicle_CRUD_obj;
+                                                                std::cout<<"Enter Vehicle ID for Searching "<<std::endl;
+                                                                string id;
+                                                                std::cin>>id;
+                                                                Vehicle_CRUD_obj.searching(id);   
+                        
+                                                            }
+                                                            break;
+                                                        case 4:
+                                                            {
+                                                                Vehicle_CRUD Vehicle_CRUD_obj;
+                                                                Vehicle_CRUD_obj.create();
+                                                            }
+                                                            break;
+                                                        default:
+                                                            break;
+                                                    }
+                                                }while(choice!=0);
+                                            }
                                         default:
                                             break;
                                         }

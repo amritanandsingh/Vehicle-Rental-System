@@ -80,9 +80,9 @@ bool isWord(const std::string &s) // Use const reference for parameter
 void menuForCustomer()
 {   
     std::cout<<"Enter 0 for EXIT \n";
-    std::cout<<"Enter 1 for Searching Vehical \n";
-    std::cout<<"Enter 2 for Booking Vehical \n";
-    std::cout<<"Enter 3 for view All booked Vehical \n";
+    std::cout<<"Enter 1 for Searching Vehicle \n";
+    std::cout<<"Enter 2 for Booking Vehicle \n";
+    std::cout<<"Enter 3 for view All booked Vehicle \n";
 }
 
 void vehicleSearchMenu()
@@ -99,6 +99,23 @@ void staffMenu()
     std::cout<<"Enter 0 for EXIT "<<std::endl;
     std::cout<<"Enter 1 for view all Booking "<<std::endl;
     std::cout<<"Enter 2 for view list Of Booking on Date "<<std::endl;
-
+    std::cout<<"Enter 3 for Delete , Update , Read , Create "<<std::endl;
+}
+void crudVehicle()
+{   
+    std::cout<<"Enter your input for Respective Operation \n";
+    std::cout<<"Enter 0 for EXIT "<<std::endl;
+    std::cout<<"Enter 1 for Delete ."<<std::endl;
+    std::cout<<"Enter 2 for Update . "<<std::endl;
+    std::cout<<"Enter 3 for Read ."<<std::endl;
+    std::cout<<"Enter 4 for Create ."<<std::endl;
+}
+void updateVehicleMenu()
+{
+    std::cout<<"Enter Vehicle ID for update "<<std::endl;
+    std::cout<<"Enter status of Vehicle(free/booked) if not NA \n";
+    std::cout<<"Enter type of Vehicle(car/bike/bicycle) if not NA \n";
+    std::cout<<"Enter option of Vehicle(seatbelt,tyre,helmet) if not NA \n";
+    
 }
 #endif
