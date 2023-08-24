@@ -9,7 +9,7 @@
 
 class booking
 {   
-    private:
+    public:
         double bill()
         {   double total=0;
 
@@ -38,12 +38,10 @@ class booking
         double cost ;
         std::string type;
     public:
-        void booked(std::string customerId , std::string VehicleId , Date from , Date to , std::string type)
+        booking(std::string customerId, std::string VehicleId, Date from, Date to, std::string type): start(from), end(to) // Initialize Date members using initializer list
         {
             this->customerId = customerId;
             this->VehicleId = VehicleId;
-            this->start = from;
-            this->end = to;
             this->type = type;
             this->cost = bill();
         }
@@ -52,19 +50,28 @@ class booking
 class bookingOps{
     public:
         
-        void makeBooking(std::string  customerId, std::string vehicleId ) // for making booking for customer
+        void makeBooking(std::string  customerId, std::string vehicleId , std::string type) // for making booking for customer
         {
-            try{
+            try {
+                std::cout << "Enter start Date of booking (in DD,MM,YYYY) " << std::endl;
+                int dd, mm, yyyy;
+                std::cin >> dd >> mm >> yyyy;
+                std::cout << "Enter End Date of booking (in DD,MM,YYYY) " << std::endl;
+                Date startDate(dd, mm, yyyy);
+                std::cin >> dd >> mm >> yyyy;
+                Date endDate(dd, mm, yyyy);
+                booking bookingObj(customerId, vehicleId, startDate, endDate, type);
 
-                
-                std::cout<<"Enter start Date of booking (in DD,MM,YYYY) "<<std::endl;
-                int dd,mm,yyyy;
-                std::cin>>dd>>mm>>yyyy;
-                std::cout<<"Enter End Date of booking (in DD,MM,YYYY) "<<std::endl;
-                Date startDate(dd,mm,yyyy);
-                std::cin>>dd>>mm>>yyyy;
-                Date endDate(dd,mm,yyyy);
-                
+                std::fstream obj;
+                obj.open("../../csv/booking.csv", std::ios::app);
+                if (obj.is_open()) {
+                    obj << bookingObj.customerId << "," << bookingObj.VehicleId << "," << bookingObj.type << "," << bookingObj.cost << ","
+                        << bookingObj.start.dd << "," << bookingObj.start.mm << "," << bookingObj.start.yyyy << ","
+                        << bookingObj.end.dd << "," << bookingObj.end.mm << "," << bookingObj.end.yyyy << "\n";
+                    obj.close();
+                } else {
+                    std::cout << "Error in Opening File" << std::endl;
+                }
             }
             catch(int i)
             {
@@ -81,7 +88,7 @@ class bookingOps{
         {
 
         }
-        void ListAllBooking() // printing all linked list for admin
+        void ListAllBooking() // printing all  list for admin
         {
            
         }
@@ -90,6 +97,7 @@ class bookingOps{
 
         }
         std::list<booking> head;
+        /*
         bookingOps()
         {   
             std::fstream obj;
@@ -99,7 +107,7 @@ class bookingOps{
                 std::string line;
                 while(getline(obj,line))
                 {
-                    std::cout<<line<<std::endl;
+                    //std::cout<<line<<std::endl;
                 }
             }   
             else{
@@ -111,6 +119,6 @@ class bookingOps{
         {   
             
         }
-
+        */
 };
 #endif

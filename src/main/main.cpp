@@ -4,6 +4,7 @@
 #include "../../headers/authentication/authentication.hpp"
 #include "../../headers/signup/signup.hpp"
 #include "../../headers/vehicle/vehicle.hpp"
+#include "../../headers/booking/booking.hpp"
 int main()
 {   
     int choice ;
@@ -59,8 +60,24 @@ int main()
                                             break;
                                         case 2:
                                             {
-                                                   
+                                                string vehicleId;
+                                                Vehicle_CRUD Vehicle_CRUD_obj;
+                                                std::cout<<"Enter Vehical ID for Booking \n";
+                                                cin>>vehicleId;
+                                                std::string status = Vehicle_CRUD_obj.statusOfVehicle(vehicleId);
+                                                if(status!="Not Found" || status == "free")
+                                                {
+                                                    bookingOps bookingObj;
+                                                    std::string type = Vehicle_CRUD_obj.getVehicleType(vehicleId);
+                                                    bookingObj.makeBooking(id,vehicleId,type);
+                                                    Vehicle_CRUD_obj.toggleStatusOfVehicle(vehicleId);
+                                                }
+                                                else{
+                                                    std::cout<<"Invalid Vehical ID or already Booked"<<endl;
+                                                }
+
                                             }
+                                            break;
                                         default:
                                             std::cout<<" WRONG INPUT \n ";
                                             break;

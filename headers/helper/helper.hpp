@@ -83,7 +83,7 @@ void menuForCustomer()
     std::cout<<"Enter 0 for EXIT \n";
     std::cout<<"Enter 1 for Searching Vehical \n";
     std::cout<<"Enter 2 for Booking Vehical \n";
-
+    
 }
 void vehicleSearchMenu()
 {   

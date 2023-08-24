@@ -272,6 +272,57 @@ public:
             std::cout << "error in opening file \n";
         }
     }
+    std::string statusOfVehicle(std::string vehicleID)
+    {
+        std::list<Vehicle*>::iterator ptr ;
+        for ( ptr = head.begin(); ptr != head.end(); ptr++)
+        {
+            //std::cout<<(*ptr)->getType();
+            if(vehicleID == ((*ptr)->id) && ((*ptr)->status)=="free")
+            {
+               return ((*ptr)->status);
+            }
+        }
+        return "Not Found";
+    }
+    void toggleStatusOfVehicle(std::string vehicleID)
+    {
+        int i=0;
+        std::list<Vehicle*>::iterator ptr ;
+        for ( ptr = head.begin(); ptr != head.end(); ptr++)
+        {
+            //std::cout<<(*ptr)->getType();
+            if(vehicleID == ((*ptr)->id) )
+            {   i=1;
+                if(((*ptr)->status)=="free") 
+                {
+                    (*ptr)->status="booked";
+                }
+                else if(((*ptr)->status)=="booked") 
+                {
+                    (*ptr)->status="free";
+                }
+            }
+        }
+        if(i)
+        std::cout<<"Toggle is Done\n";
+        else{
+            std::cout<<"Vehicle Not Found\n";
+        }
+    }
+    std::string getVehicleType(std::string vehicleID)
+    {
+        std::list<Vehicle*>::iterator ptr ;
+        for ( ptr = head.begin(); ptr != head.end(); ptr++)
+        {
+            //std::cout<<(*ptr)->getType();
+            if(vehicleID == ((*ptr)->id) )
+            {
+               return (*ptr)->getType();
+            }
+        }
+        return "Not Found";
+    }
 };
 
 #endif
