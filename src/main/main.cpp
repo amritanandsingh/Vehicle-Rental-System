@@ -78,6 +78,12 @@ int main()
 
                                             }
                                             break;
+                                        case 3:
+                                            {
+                                                bookingOps bookingOpsObj;
+                                                bookingOpsObj.userSummary(id);
+                                            }
+                                            break;
                                         default:
                                             std::cout<<" WRONG INPUT \n ";
                                             break;

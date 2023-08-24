@@ -79,12 +79,12 @@ bool isWord(const std::string &s) // Use const reference for parameter
     }
 void menuForCustomer()
 {   
-
     std::cout<<"Enter 0 for EXIT \n";
     std::cout<<"Enter 1 for Searching Vehical \n";
     std::cout<<"Enter 2 for Booking Vehical \n";
-    
+    std::cout<<"Enter 3 for view All booked Vehical \n";
 }
+
 void vehicleSearchMenu()
 {   
     std::cout<<"SEARCHING :- \n";

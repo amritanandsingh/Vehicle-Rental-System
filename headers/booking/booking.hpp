@@ -5,6 +5,8 @@
 #include<list>
 #include<fstream>
 #include<sstream>
+#include<vector>
+#include<string>
 #include "./date.hpp"
 
 class booking
@@ -44,10 +46,22 @@ class booking
             this->VehicleId = VehicleId;
             this->type = type;
             this->cost = bill();
+            std::cout<<"Total Fare Will Be "<<this->cost<<std::endl;
         }
 
 };
 class bookingOps{
+        std::vector<std::string> convertSentenceToVector(const std::string& sentence) {
+        std::vector<std::string> sentences;
+        std::istringstream iss(sentence);
+        std::string sentenceToken;
+
+        while (std::getline(iss, sentenceToken, ',')) {
+            sentences.push_back(sentenceToken);
+        }
+
+        return sentences;
+    }
     public:
         
         void makeBooking(std::string  customerId, std::string vehicleId , std::string type) // for making booking for customer
@@ -84,13 +98,58 @@ class bookingOps{
             
 
         }
-        void summary(std::string customerId) //all booking  summary for customer only
+        void userSummary(std::string customerId) //all booking  summary for customer only
         {
-
+            std::fstream obj;
+            obj.open("../../csv/booking.csv", std::ios::in);
+            if(obj.is_open())
+            {
+                std::string s;
+                while(getline(obj,s))
+                {
+                    std::vector<std::string> words = convertSentenceToVector(s);
+                    if(words[0]==customerId)
+                    {
+                        std::cout<<"Vehical ID : "<<words[1]<<std::endl;
+                        std::cout<<"Type of Vehical : "<<words[2]<<std::endl;
+                        std::cout<<"Total Cost Will be : "<<words[3]<<std::endl;
+                        std::cout<<"Trip Starts on :"<<words[4]<<"/"<<words[5]<<"/"<<words[6]<<std::endl;
+                        std::cout<<"Trip End on : "<<words[7]<<"/"<<words[8]<<"/"<<words[9]<<std::endl;
+                        std::cout<<"---------------------------------------------------------------------------------------\n";
+                    }
+                }
+            }
+            else{
+                std::cout<<"Error in Opening File Booking.csv \n";
+            }
         }
         void ListAllBooking() // printing all  list for admin
         {
-           
+            std::fstream obj;
+            double total = 0;
+            obj.open("../../csv/booking.csv", std::ios::in);
+            if(obj.is_open())
+            {
+                std::string s;
+                std::cout<<"List of All Booked Vehicle"<<std::endl;
+                while(getline(obj,s))
+                {
+                    std::vector<std::string> words = convertSentenceToVector(s);
+                    {
+                        std::cout<<"Vehical ID : "<<words[1]<<std::endl;
+                        std::cout<<"Type of Vehical : "<<words[2]<<std::endl;
+                        std::cout<<"Total Cost Will be : "<<words[3]<<std::endl;
+                        total += stod(words[3]);
+                        std::cout<<"Trip Starts on :"<<words[4]<<"/"<<words[5]<<"/"<<words[6]<<std::endl;
+                        std::cout<<"Trip End on : "<<words[7]<<"/"<<words[8]<<"/"<<words[9]<<std::endl;
+                        std::cout<<"---------------------------------------------------------------------------------------\n";
+                    }
+                }
+                std::cout<<"Total Revenue : "<<total<<std::endl;
+            }
+            else{
+                std::cout<<"Error in Opening File Booking.csv \n";
+            }
         }
         void listOfBookingOnDay(Date date )  // booking on specific day for admin
         {
