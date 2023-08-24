@@ -1,1 +1,1 @@
-bookingOpsObj
+                                                bookingOpsObj.listOfBookingOnDay();

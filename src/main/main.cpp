@@ -93,6 +93,34 @@ int main()
                             else{
                                 if(type=="staff")
                                 {
+                                    int input=0;
+                                    do{
+                                        staffMenu();
+                                        std::cin>>input;
+                                        switch (input)
+                                        {
+                                        case 0:
+                                            std::cout<<"You Have successfully logout \n";
+                                            break;
+                                        case 1:
+                                            {
+                                                bookingOps bookingOpsObj;
+                                                bookingOpsObj.ListAllBooking();
+                                            }
+                                            break;
+                                        case 2:
+                                            {
+                                                bookingOps bookingOpsObj;
+                                                bookingOpsObj.listOfBookingOnDay();
+                                            }
+                                            break;
+                                        default:
+                                            break;
+                                        }
+
+                                    }while(input!=0);
+
+
 
                                 }
                             }

@@ -92,4 +92,13 @@ void vehicleSearchMenu()
     std::cout<<"Enter status(free or booked) or NA \n";
     std::cout<<"Enter type(car , bike , bicycle) or NA \n";
 }
+
+void staffMenu()
+{   
+    std::cout<<"Enter your input for Respective Operation \n";
+    std::cout<<"Enter 0 for EXIT "<<std::endl;
+    std::cout<<"Enter 1 for view all Booking "<<std::endl;
+    std::cout<<"Enter 2 for view list Of Booking on Date "<<std::endl;
+
+}
 #endif
