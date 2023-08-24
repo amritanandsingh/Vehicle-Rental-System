@@ -77,5 +77,19 @@ bool isWord(const std::string &s) // Use const reference for parameter
         }
         return true;
     }
+void menuForCustomer()
+{   
 
+    std::cout<<"Enter 0 for EXIT \n";
+    std::cout<<"Enter 1 for Searching Vehical \n";
+    std::cout<<"Enter 2 for Booking Vehical \n";
+
+}
+void vehicleSearchMenu()
+{   
+    std::cout<<"SEARCHING :- \n";
+    std::cout<<"Enter ID of Vehicle or NA \n";
+    std::cout<<"Enter status(free or booked) or NA \n";
+    std::cout<<"Enter type(car , bike , bicycle) or NA \n";
+}
 #endif

@@ -3,7 +3,10 @@
 
 #include<iostream>
 #include<list>
+#include<fstream>
+#include<sstream>
 #include "./date.hpp"
+
 class booking
 {   
     private:
@@ -49,8 +52,29 @@ class booking
 class bookingOps{
     public:
         
-        void makeBooking() // for making booking
+        void makeBooking(std::string  customerId, std::string vehicleId ) // for making booking for customer
         {
+            try{
+
+                
+                std::cout<<"Enter start Date of booking (in DD,MM,YYYY) "<<std::endl;
+                int dd,mm,yyyy;
+                std::cin>>dd>>mm>>yyyy;
+                std::cout<<"Enter End Date of booking (in DD,MM,YYYY) "<<std::endl;
+                Date startDate(dd,mm,yyyy);
+                std::cin>>dd>>mm>>yyyy;
+                Date endDate(dd,mm,yyyy);
+                
+            }
+            catch(int i)
+            {
+                std::cout<<"Vehicle is Already booked \n ";
+            }
+            catch(...)
+            {
+                std::cout<<"Something Went Wrong \n ";
+            }
+            
 
         }
         void summary(std::string customerId) //all booking  summary for customer only
@@ -68,7 +92,20 @@ class bookingOps{
         std::list<booking> head;
         bookingOps()
         {   
-            
+            std::fstream obj;
+            obj.open("../../csv/booking.csv",std::ios::in);
+            if(obj.is_open())
+            {
+                std::string line;
+                while(getline(obj,line))
+                {
+                    std::cout<<line<<std::endl;
+                }
+            }   
+            else{
+                std::cout<<"Error in opening booking.csv "<<std::endl;
+            } 
+
         }
         ~bookingOps()
         {   
