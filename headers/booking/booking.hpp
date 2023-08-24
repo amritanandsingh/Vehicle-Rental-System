@@ -151,11 +151,37 @@ class bookingOps{
                 std::cout<<"Error in Opening File Booking.csv \n";
             }
         }
-        void listOfBookingOnDay(Date date )  // booking on specific day for admin
+        void listOfBookingOnDay( )  // booking on specific day for admin
         {
-
+            std::cout<<"Enter specific date in DDMMYYYY fromat(one by one after enter ) "<<std::endl;   
+            std::string dd,mm,yyyy;
+            std::cin>>dd>>mm>>yyyy;
+            
+            std::fstream obj;
+            obj.open("../../csv/booking.csv", std::ios::in);
+            if(obj.is_open())
+            {
+                std::string s;
+                std::cout<<"List of Booking On "<<dd<<"/"<<mm<<"/"<<yyyy<<std::endl;
+                while(getline(obj,s))
+                {
+                    std::vector<std::string> words = convertSentenceToVector(s);
+                    if(words[4]==dd && words[5]==dd && words[6]==yyyy)
+                    {
+                        std::cout<<"Vehical ID : "<<words[1]<<std::endl;
+                        std::cout<<"Type of Vehical : "<<words[2]<<std::endl;
+                        std::cout<<"Total Cost Will be : "<<words[3]<<std::endl;
+                        std::cout<<"Trip Starts on :"<<words[4]<<"/"<<words[5]<<"/"<<words[6]<<std::endl;
+                        std::cout<<"Trip End on : "<<words[7]<<"/"<<words[8]<<"/"<<words[9]<<std::endl;
+                        std::cout<<"---------------------------------------------------------------------------------------\n";
+                    }
+                }
+            }
+            else{
+                std::cout<<"Error in Opening File Booking.csv \n";
+            }
         }
-        std::list<booking> head;
+        //std::list<booking> head;
         /*
         bookingOps()
         {   
