@@ -14,7 +14,7 @@
 
 void homeMenu() {
     system("clear");
-
+    std::cout<<"\n\n---------------------------------------------------------------------------------- \n\n";
     // Define the menu options
     std::string menuOptions[] = {
         "Exit",
@@ -42,6 +42,7 @@ void homeMenu() {
 
 void holdScreen()
 {
+
     // Wait for user input before clearing screen
     std::cout << "Press Enter to continue...";
     std::cin.ignore(); // Clear newline character from previous input
@@ -51,6 +52,7 @@ void holdScreen()
 
 void logInView()
 {
+    std::cout<<"\n\n----------------------------------------------------------------------------------\n\n";
     std::cout<<"Enter User ID"<<std::endl;
     std::cout<<"Enter Password"<<std::endl;
 
@@ -79,6 +81,7 @@ bool isWord(const std::string &s) // Use const reference for parameter
     }
 void menuForCustomer()
 {   
+    std::cout<<"\n\n----------------------------------------------------------------------------------\n\n";
     std::cout<<"Enter 0 for EXIT \n";
     std::cout<<"Enter 1 for Searching Vehicle \n";
     std::cout<<"Enter 2 for Booking Vehicle \n";
@@ -87,6 +90,7 @@ void menuForCustomer()
 
 void vehicleSearchMenu()
 {   
+    std::cout<<"\n\n----------------------------------------------------------------------------------\n\n";
     std::cout<<"SEARCHING :- \n";
     std::cout<<"Enter ID of Vehicle or NA \n";
     std::cout<<"Enter status(free or booked) or NA \n";
@@ -95,14 +99,15 @@ void vehicleSearchMenu()
 
 void staffMenu()
 {   
+    std::cout<<"\n\n----------------------------------------------------------------------------------\n\n";
     std::cout<<"Enter your input for Respective Operation \n";
     std::cout<<"Enter 0 for EXIT "<<std::endl;
     std::cout<<"Enter 1 for view all Booking "<<std::endl;
     std::cout<<"Enter 2 for view list Of Booking on Date "<<std::endl;
-    std::cout<<"Enter 3 for Delete , Update , Read , Create "<<std::endl;
+    std::cout<<"Enter 3 for Delete , Update , Read , Create Vehicle"<<std::endl;
 }
 void crudVehicle()
-{   
+{   std::cout<<"\n\n----------------------------------------------------------------------------------\n\n";
     std::cout<<"Enter your input for Respective Operation \n";
     std::cout<<"Enter 0 for EXIT "<<std::endl;
     std::cout<<"Enter 1 for Delete ."<<std::endl;
@@ -112,6 +117,7 @@ void crudVehicle()
 }
 void updateVehicleMenu()
 {
+    std::cout<<"\n\n----------------------------------------------------------------------------------\n\n";
     std::cout<<"Enter Vehicle ID for update "<<std::endl;
     std::cout<<"Enter status of Vehicle(free/booked) if not NA \n";
     std::cout<<"Enter type of Vehicle(car/bike/bicycle) if not NA \n";

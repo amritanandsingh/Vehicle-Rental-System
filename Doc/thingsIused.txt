@@ -1,2 +1,6 @@
 git
 Coding Standards
+factory design pattern
+inheritance
+testing
+validation

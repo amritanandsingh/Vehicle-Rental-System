@@ -25,7 +25,7 @@ int main()
                         std::cin>>id>>password;
                         std::string type="NULL" ;
                         {
-                            unique_ptr<authentication> Oauth_obj(new authentication) ;
+                            unique_ptr<authentication> Oauth_obj(new authentication) ; 
                             type = Oauth_obj->logIn(id,password);
                         }
                         if(type != "NULL")
