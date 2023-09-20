@@ -73,4 +73,3 @@ If you have any questions or need assistance, please contact Amrit at amritanand
 
 ---
 
-Feel free to customize this README to match the specifics of your project. Replace `[Your Name]` and `[Your Email Address]` with your contact information, and make any other necessary adjustments to reflect your project's unique details.
